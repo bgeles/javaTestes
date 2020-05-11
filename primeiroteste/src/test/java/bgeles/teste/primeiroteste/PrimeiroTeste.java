@@ -2,17 +2,24 @@ package bgeles.teste.primeiroteste;
 
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
 import org.junit.Test;
 
 
 
 public class PrimeiroTeste {
 
+	Calculadora calculadora;
+	
+	@Before
+	public void setUp() {
+		calculadora = new Calculadora();
+	}
+	
 	@Test
 	public void estruturaDeUmTeste() {
 		// cenário
-		Calculadora calculadora = new Calculadora();
-		int numero1 = 10, numero2 = 5;
+				int numero1 = 10, numero2 = 5;
 		
 		// execução
 		int resultado = calculadora.somar(numero1, numero2);
@@ -27,7 +34,6 @@ public class PrimeiroTeste {
 	@Test(expected = RuntimeException.class)
 	public void naoDeveSomarNumerosNegativos() {
 		//cenário
-		Calculadora calculadora = new Calculadora();
 		int num1 = -10, num2 = 5;
 		
 		//execução
@@ -49,5 +55,11 @@ class Calculadora {
 		
 		return num+num2;
 	}
+	
+	int subtrair(int num , int num2) {
+		return num - num2;
+	}
+	
+	
 	
 }
